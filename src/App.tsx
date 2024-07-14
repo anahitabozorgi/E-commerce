@@ -5,14 +5,16 @@ import Index from './pages/Index'
 import About from './pages/About'
 import Home from './pages/Home'
 import ProductList from './components/ProductList'
-import AddProductForm from './pages/AddProductForm'
+import AddProductForm from './pages/AddProductForm';
+import { Provider } from 'react-redux';
+import store from './Store'
 // import uuid from 'uuid'
 
 
 
 
 
-function App() {
+const App: React.FC = () => {
 
   interface Product{
     id: number;
@@ -55,7 +57,10 @@ function App() {
   ]) 
 
   return (
-    <RouterProvider router={roots}/>
+    // <RouterProvider router={roots}/>
+    <Provider store={store}>
+        <RouterProvider router={roots}/>
+    </Provider>
   )
 }
 
